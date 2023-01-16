@@ -149,4 +149,26 @@
     </div>
 {{- end -}}
 
+<div>
+    ...
+    {{- /* giscus Comment System */ -}}
+    {{- $giscus := $comment.giscus | default dict -}}
+    {{- if $giscus.enable -}}
+    <script src="https://giscus.app/client.js"
+            data-repo="whoishou/whoishou.com"
+            data-repo-id="MDEwOlJlcG9zaXRvcnkxNzE4NzU3NDY="
+            data-category="Announcements"
+            data-category-id="DIC_kwDOCj6dos4CTgUU"
+            data-mapping="pathname"
+            data-reactions-enabled=1
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+    {{- end -}}
+ </div>
+ 
 {{- dict "comment" $commentConfig | dict "config" | merge (.Scratch.Get "this") | .Scratch.Set "this" -}}
